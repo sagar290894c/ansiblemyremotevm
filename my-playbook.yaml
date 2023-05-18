@@ -1,0 +1,14 @@
+---
+- name: Configure nginx web server
+  hosts: databaseservers
+  tasks:
+  - name: install nginx server
+    apt:
+      name: nginx
+      state: latest
+  - name: start nginx server
+    service:
+      name: nginx
+      state: started
+# cmd to execute => ansible-playbook -i hosts my-playbook.yaml
+# login to remote vm and check nginx installed or not => ps aux | grep nginx   , or simply => nginx -v

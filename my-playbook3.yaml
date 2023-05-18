@@ -1,0 +1,13 @@
+---
+- name: Configure nginx web server
+  hosts: databaseservers
+  tasks:
+  - name: uninstall nginx server
+    apt:
+      name: nginx
+      state: absent
+  - name: stop nginx server
+    service:
+      name: nginx
+      state: stopped
+# ansible-playbook -i hosts my-playbook3.yaml

@@ -1,0 +1,18 @@
+# for a specfic package of old version => for ubantu os vm => type in google ubuntu packages 
+# => choose any packages type nginx in search bar => see all versions and choose any version
+# do changes in apt package name, state thatsol from last file
+---
+- name: Configure nginx web server
+  hosts: databaseservers
+  tasks:
+  - name: install nginx server
+    apt:
+      name: nginx=1.18.0-0ubuntu1
+      state: present
+  - name: start nginx server
+    service:
+      name: nginx
+      state: started
+# cmd to execute => ansible-playbook -i hosts my-playbook2.yaml
+# login to remote vm and check nginx installed or not => ps aux | grep nginx   , or simply => nginx -v
+# Basically you can write apt package name as     => name: nginx=1.18*     and execute easy way
